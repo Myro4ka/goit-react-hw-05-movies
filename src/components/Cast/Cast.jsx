@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieCast } from 'services/API';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
   const BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -39,3 +39,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;
