@@ -1,15 +1,14 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
-const Home = lazy(() => import('pages/Home'));
-const Movies = lazy(() => import('pages/Movies'));
-const MoviesDetails = lazy(() => import('pages/MoviesDetails'));
+const Home = lazy(() => import('pages/Home/Home'));
+const Movies = lazy(() => import('pages/Movies/Movies'));
+const MoviesDetails = lazy(() => import('pages/MoviesDetails/MoviesDetails'));
 const Cast = lazy(() => import('components/Cast/Cast'));
 const Reviews = lazy(() => import('components/Reviews/Reviews'));
 
 export const App = () => {
   return (
-    // <StyledDiv>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -21,6 +20,5 @@ export const App = () => {
       </Route>
       <Route path="*" element={<div>404</div>} />
     </Routes>
-    // </StyledDiv>
   );
 };

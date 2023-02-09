@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getTrendingMovies } from 'services/API';
+import { imgSRC } from 'utils/imageHref';
+import { Heading, UL } from './Home.styled';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -14,17 +16,19 @@ const Home = () => {
 
   return (
     <>
-      <ul>
-        {movies.map(({ title, id }) => {
+      <Heading>Trending today</Heading>
+      <UL>
+        {movies.map(({ title, id, poster_path }) => {
           return (
             <li key={id}>
               <Link to={`/movies/${id}`} state={{ from: location }}>
-                <p>{title}</p>
+                <img src={imgSRC(poster_path)} alt="" />
+                <h3>{title}</h3>
               </Link>
             </li>
           );
         })}
-      </ul>
+      </UL>
     </>
   );
 };
